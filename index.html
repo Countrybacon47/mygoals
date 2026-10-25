@@ -205,7 +205,7 @@ if(SM)h+='<button data-a="aiest" style="width:100%;margin-bottom:8px"'+(U.busy?'
 if(U.err)h+='<div class="err">'+esc(U.err)+'</div>';
 h+='<div class="card"><b>Ingredients</b><div class="mu" style="margin-bottom:4px">Tap the ones you already have</div><ul class="ing">'+r.ings.map(function(g,i){return'<li class="'+(g.h?'got':'')+'" data-a="have" data-v="'+r.id+':'+i+'"><span class="bx">'+(g.h?'✓':'')+'</span><span>'+esc(g.t)+'</span></li>'}).join('')+'</ul></div>';
 h+='<div class="row"><button data-a="redit">Edit recipe</button><button data-a="reset">Need everything again</button></div><br><button data-a="rdel" style="width:100%;color:var(--up)">'+(U.delc==r.id?'Tap again to delete':'Delete recipe')+'</button>';
-if(U.akf)h+=AKF();return h}
+if(U.rform)h+=RF();if(U.akf)h+=AKF();return h}
 function rd(){var g=function(i){return document.getElementById(i)};if(U.rform&&g("rf_n")){U.rform.name=g("rf_n").value;U.rform.serv=g("rf_s").value;U.rform.ings=g("rf_i").value}}
 async function est(id){var r=null;S.recipes.forEach(function(x){if(x.id==id)r=x});if(!r)return;
 if(!SM){U.err="AI estimates aren't available here, so enter the macros by hand.";H();return}
